@@ -22,8 +22,10 @@ ap.start()
 time.sleep(5)
 ap.setEffects([limiter])
 time.sleep(5)
+ap.stop()
 ap.setEffects([maximizer])
 time.sleep(5)
+ap.start()
 ap.setEffects([limiter, maximizer])
 
 while True:

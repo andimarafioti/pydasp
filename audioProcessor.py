@@ -1,25 +1,19 @@
 # coding: utf-8
+
 import threading
-
 import numpy as np
-
-__author__ = 'Andres'
-
 import pyaudio
 import time
+
+__author__ = 'Andres'
 
 
 class AudioProcessor(object):
 	def __init__(self, frames_per_buffer, channels, rate, effects):
 		self.p = pyaudio.PyAudio()
 		self._effects = effects
-		self.stream = self.p.open(format=pyaudio.paFloat32,
-						channels=channels,
-						rate=rate,
-						frames_per_buffer=frames_per_buffer,
-						input=True,
-						output=True,
-						stream_callback=self.callback)
+		self.stream = self.p.open(format=pyaudio.paFloat32, channels=channels, rate=rate, input=True, output=True,
+								frames_per_buffer=frames_per_buffer, stream_callback=self.callback)
 
 	def callback(self, in_data, frame_count, time_info, status):
 		data = np.fromstring(in_data, dtype=np.float32)
