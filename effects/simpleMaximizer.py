@@ -7,11 +7,12 @@ __author__ = 'Andres'
 
 
 class Maximizer(simpleEffect):
-	def __init__(self, initial_value, average_length):
+	def __init__(self, initial_value=0.5, average_length=20):
+		self.initial_value = initial_value
 		self.averages = np.array([initial_value])
 		self.average_length = average_length
 
 	def process(self, audio):
-		np.append(self.averages, audio.max())
+		self.averages = np.append(self.averages, audio.max())
 		processed_audio = audio/self.averages[-self.average_length:].mean()
 		return processed_audio
