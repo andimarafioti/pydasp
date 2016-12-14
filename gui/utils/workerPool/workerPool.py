@@ -1,9 +1,9 @@
 import logging
 from _weakrefset import WeakSet
 
-from utils.workerPool.fifoPriorityQueue import FIFOPriorityQueue
-from utils.workerPool.poolWorker import PoolWorker
-from utils.workerPool.task import Task
+from gui.utils.workerPool.poolWorker import PoolWorker
+from gui.utils.workerPool.fifoPriorityQueue import FIFOPriorityQueue
+from gui.utils.workerPool.task import Task
 
 __author__ = 'Jules'
 
