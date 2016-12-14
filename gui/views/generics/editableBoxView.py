@@ -4,7 +4,7 @@ from PySide.QtGui import QLabel
 from PySide.QtGui import QLineEdit
 from PySide.QtGui import QVBoxLayout
 
-from gui.views.view import View
+from gui.views.generics.view import View
 
 __author__ = 'Andres'
 

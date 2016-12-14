@@ -3,9 +3,9 @@ import threading
 from PySide import shiboken
 from PySide.QtCore import QObject, Signal
 from PySide.QtGui import QApplication
-from gui.utils.workerPool.workerPool import WorkerPool
 
-from gui.models.model import Model
+from gui.models.generics.model import Model
+from gui.utils.workerPool.workerPool import WorkerPool
 
 __author__ = 'Andres'
 

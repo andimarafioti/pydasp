@@ -1,6 +1,6 @@
 # coding: utf-8
-from gui.models.model import Model
-from gui.presenters.editableBoxPresenter import EditableBoxPresenter
+from gui.models.generics.model import Model
+from gui.presenters.generics.editableBoxPresenter import EditableBoxPresenter
 
 __author__ = 'Andres'
 
