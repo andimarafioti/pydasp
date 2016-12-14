@@ -4,7 +4,6 @@ import sys
 from PySide.QtGui import QApplication
 
 from audioProcessor import AudioProcessor
-from effects.simpleMaximizer import Maximizer
 from gui.models.mainModel import MainModel
 
 __author__ = 'Andres'
@@ -15,8 +14,7 @@ locale.setlocale(locale.LC_ALL, "spanish")
 # qt_app.setEffectEnabled(Qt.UI_AnimateCombo, False)
 qt_app.setQuitOnLastWindowClosed(False)
 
-maximizer = Maximizer()
-
+# maximizer = Maximizer()
 ap = AudioProcessor(1024, 2, 44100, [])
 ap.start()
 

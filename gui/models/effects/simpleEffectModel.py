@@ -1,8 +1,8 @@
 # coding: utf-8
 from inspect import getargspec
 
-from gui.models.editableBoxModel import EditableBoxModel
-from gui.models.model import Model
+from gui.models.generics.editableBoxModel import EditableBoxModel
+from gui.models.generics.model import Model
 from gui.presenters.effects.simpleEffectPresenter import SimpleEffectPresenter
 
 __author__ = 'Andres'

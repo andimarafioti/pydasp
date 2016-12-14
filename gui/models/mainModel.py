@@ -1,5 +1,6 @@
 # coding: utf-8
-from gui.models.model import Model
+from gui.models.addEffectMenuModel import AddEffectMenuModel
+from gui.models.generics.model import Model
 from gui.presenters.mainPresenter import MainPresenter
 
 __author__ = 'Andres'
@@ -12,5 +13,5 @@ class MainModel(Model):
 	def _getPresenterInstance(self):
 		return MainPresenter(self)
 
-	def addEffectsClicked(self):
-		print "yeah"
+	def addEffectsClicked(self, pos):
+		AddEffectMenuModel(pos)

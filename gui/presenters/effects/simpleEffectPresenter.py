@@ -1,5 +1,5 @@
 # coding: utf-8
-from gui.presenters.presenter import Presenter
+from gui.presenters.generics.presenter import Presenter
 from gui.views.effects.simpleEffectView import SimpleEffectView
 
 __author__ = 'Andres'

@@ -8,5 +8,9 @@ class simpleEffect(object):
 	def process(self, signal):
 		raise NotImplementedError("Subclass Responsibility")
 
+	@classmethod
+	def name(self):
+		raise NotImplementedError("Subclass Responsibility")
+
 	def getModel(self):
 		return SimpleEffectModel(self)

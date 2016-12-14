@@ -2,7 +2,7 @@
 from PySide.QtCore import Signal
 from PySide.QtGui import QGridLayout
 
-from gui.views.view import View
+from gui.views.generics.view import View
 
 __author__ = 'Andres'
 

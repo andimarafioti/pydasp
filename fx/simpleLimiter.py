@@ -1,7 +1,7 @@
 # coding: utf-8
 import numpy as np
 
-from effects.simpleEffect import simpleEffect
+from fx.simpleEffect import simpleEffect
 
 __author__ = 'Andres'
 
@@ -10,6 +10,8 @@ __author__ = 'Andres'
 
 
 class Limiter(simpleEffect):
+	NAME = "Limiter"
+
 	def __init__(self, attack_coeff, release_coeff, delay, threshold, dtype=np.float32):
 		self.delay_index = 0
 		self.envelope = 0
@@ -40,3 +42,7 @@ class Limiter(simpleEffect):
 			signal[i] = self.delay_line[self.delay_index] * self.gain
 
 		return signal
+
+	@classmethod
+	def name(self):
+		return self.NAME
