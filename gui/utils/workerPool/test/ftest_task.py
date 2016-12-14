@@ -1,5 +1,6 @@
 from unittest import TestCase
-from utils.workerPool.task import Task
+
+from gui.utils.workerPool.task import Task
 
 __author__ = 'Jules'
 

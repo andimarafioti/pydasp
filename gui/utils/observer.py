@@ -3,7 +3,7 @@ import logging
 from _weakrefset import WeakSet
 from threading import RLock
 
-from utils.auxFunctions import stringFor
+from gui.utils.auxFunctions import stringFor
 
 logger = logging.getLogger("[OBSERVER]")
 logger.setLevel(logging.INFO)

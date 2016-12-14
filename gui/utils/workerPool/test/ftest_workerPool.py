@@ -1,10 +1,7 @@
-from time import sleep
 from unittest import TestCase
 from threading import Event, current_thread
 
-from mock import Mock
-
-from utils.workerPool.workerPool import WorkerPool
+from gui.utils.workerPool.workerPool import WorkerPool
 
 
 class TestWorkerPool(TestCase):
