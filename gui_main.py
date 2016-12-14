@@ -5,6 +5,7 @@ from PySide.QtGui import QApplication
 
 from audioProcessor import AudioProcessor
 from effects.simpleMaximizer import Maximizer
+from gui.models.mainModel import MainModel
 
 __author__ = 'Andres'
 
@@ -16,10 +17,10 @@ qt_app.setQuitOnLastWindowClosed(False)
 
 maximizer = Maximizer()
 
-ap = AudioProcessor(1024, 2, 44100, [maximizer])
+ap = AudioProcessor(1024, 2, 44100, [])
 ap.start()
 
-model = maximizer.getModel()
+model = MainModel()
 model.showView()
 
 qt_app.exec_()
