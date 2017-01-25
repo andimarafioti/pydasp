@@ -1,5 +1,4 @@
 # coding: utf-8
-from gui.models.effects.simpleEffectModel import SimpleEffectModel
 
 __author__ = 'Andres'
 
@@ -12,5 +11,5 @@ class simpleEffect(object):
 	def name(self):
 		raise NotImplementedError("Subclass Responsibility")
 
-	def getModel(self):
-		return SimpleEffectModel(self)
+	def visitModel(self, visitor):  # This visitor avoids the effects backend from importing GUI stuff
+		return visitor.visitSimpleEffectModel(self)
