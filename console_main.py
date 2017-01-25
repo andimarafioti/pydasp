@@ -2,8 +2,8 @@
 import time
 
 from audioProcessor import AudioProcessor
-from effects.simpleLimiter import Limiter
-from effects.simpleMaximizer import Maximizer
+from fx.simpleLimiter import Limiter
+from fx.simpleMaximizer import Maximizer
 
 __author__ = 'Andres'
 
