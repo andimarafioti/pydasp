@@ -2,7 +2,7 @@ import logging
 import traceback
 from threading import Thread, current_thread
 
-from utils.workerPool.task import StopWorkerTask
+from gui.utils.workerPool.task import StopWorkerTask
 
 __author__ = 'Jules'
 

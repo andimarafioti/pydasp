@@ -7,8 +7,6 @@ from math import floor
 from PySide.QtCore import QRectF, Qt, QByteArray, QIODevice, QBuffer
 from PySide.QtGui import QPixmap, QMessageBox, QPainter, QImage
 
-from models.esttelaServices import Esttela
-
 
 def doNothing(*args):
 	pass
@@ -154,73 +152,6 @@ def showOkDialog(message, parent=None):
 	dialog.setText(message)
 	dialog.setStandardButtons(QMessageBox.Ok)
 	dialog.exec_()
-
-
-def getCompositeImageFrom(songs):
-	'''
-	Potencialmente bloqueante, usar con LazyLoader
-	'''
-	# return models.esttela.ModelLauncher.mainModel.dataAccess.playlists.getImage(self)	<- deprecado por ahora
-
-	albums = set(song.album() for song in songs)
-	composition = [album for album in albums if Esttela.dataAccess.albums.hasImageFor(album)]
-
-	if len(composition) == 0:
-		return Esttela.dataAccess.playlists.defaultImage()
-	elif len(composition) == 1:
-		return composition[0].image()
-	else:
-		image = QImage(128, 128, QImage.Format_RGB32)
-		painter = QPainter()
-		painter.begin(image)
-		painter.fillRect(0, 0, 128, 128, Qt.white)
-		if len(composition) == 2:
-			tapa = QImage()
-			tapa.loadFromData(composition[0].image())
-			tapa = tapa.scaled(128, 128, mode=Qt.SmoothTransformation)
-			painter.drawImage(QRectF(0, 0, 128, 63), tapa, QRectF(0, 32, 128, 63))
-			tapa = QImage()
-			tapa.loadFromData(composition[1].image())
-			tapa = tapa.scaled(128, 128, mode=Qt.SmoothTransformation)
-			painter.drawImage(QRectF(0, 64, 128, 65), tapa, QRectF(0, 32, 128, 65))
-		elif len(composition) == 3:
-			tapa = QImage()
-			tapa.loadFromData(composition[0].image())
-			tapa = tapa.scaled(128, 128, mode=Qt.SmoothTransformation)
-			painter.drawImage(QRectF(0, 0, 128, 63), tapa, QRectF(0, 32, 128, 63))
-			tapa = QImage()
-			tapa.loadFromData(composition[1].image())
-			tapa = tapa.scaled(64, 64, mode=Qt.SmoothTransformation)
-			painter.drawImage(QRectF(0, 65, 63, 63), tapa, QRectF(0, 0, 64, 64))
-			tapa = QImage()
-			tapa.loadFromData(composition[2].image())
-			tapa = tapa.scaled(64, 64, mode=Qt.SmoothTransformation)
-			painter.drawImage(QRectF(65, 65, 63, 63), tapa, QRectF(0, 0, 64, 64))
-		else:
-			tapa = QImage()
-			tapa.loadFromData(composition[0].image())
-			tapa = tapa.scaled(64, 64, mode=Qt.SmoothTransformation)
-			painter.drawImage(QRectF(0, 0, 63, 63), tapa, QRectF(0, 0, 64, 64))
-			tapa = QImage()
-			tapa.loadFromData(composition[1].image())
-			tapa = tapa.scaled(64, 64, mode=Qt.SmoothTransformation)
-			painter.drawImage(QRectF(65, 0, 63, 63), tapa, QRectF(0, 0, 64, 64))
-			tapa = QImage()
-			tapa.loadFromData(composition[2].image())
-			tapa = tapa.scaled(64, 64, mode=Qt.SmoothTransformation)
-			painter.drawImage(QRectF(0, 65, 63, 63), tapa, QRectF(0, 0, 64, 64))
-			tapa = QImage()
-			tapa.loadFromData(composition[3].image())
-			tapa = tapa.scaled(64, 64, mode=Qt.SmoothTransformation)
-			painter.drawImage(QRectF(65, 65, 63, 63), tapa, QRectF(0, 0, 64, 64))
-		painter.end()
-
-		ba = QByteArray()
-		buffer = QBuffer(ba)
-		buffer.open(QIODevice.WriteOnly)
-		image.save(buffer, "PNG")
-
-	return ba
 
 
 def obtenerTodasLasIps(): return socket.gethostbyname_ex(socket.gethostname())[2]
