@@ -14,4 +14,4 @@ class MainModel(Model):
 		return MainPresenter(self)
 
 	def addEffectsClicked(self, pos):
-		AddEffectMenuModel(pos)
+		AddEffectMenuModel(pos, parent=self)
