@@ -21,7 +21,7 @@ class MainView(View):
 		addEffects.setFlat(True)
 		addEffects.setCursor(Qt.PointingHandCursor)
 		addEffects.setStyleSheet("QPushButton{outline:0; border-radius: 0px}")
-		addEffects.setIcon(QPixmap("gui\\Add-Effects.jpg"))
+		addEffects.setIcon(QPixmap("gui\\Add-Effects.png"))
 		addEffects.setIconSize(QSize(300, 50))
 
 		self.layout().addWidget(addEffects, 0, 0, 1, 1)
