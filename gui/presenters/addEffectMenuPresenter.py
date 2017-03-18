@@ -7,14 +7,17 @@ __author__ = 'Andres'
 
 class AddEffectMenuPresenter(Presenter):
 	def _getViewInstance(self):
-		return AddEffectMenuView(self)
+		return AddEffectMenuView(self, self.model.parent().presenter.view)
 
 	def onNotify(self, emitter, event, args):
 		super(AddEffectMenuPresenter, self).onNotify(emitter, event, args)
 		if emitter is self.model:
 			if event is self.model.INITIALIZE:
-				effects_names = [effect.name() for effect in self.model.effects]
-				self.view.Initialize.emit(effects_names, self.model.pos)
+				effects_names_and_callback = [(effect.name(), self.callbackGenerator(effect)) for effect in self.model.EFFECTS]
+				self.view.Initialize.emit(effects_names_and_callback, self.model.pos)
 
-	def crash(self):
-		print "CRAHS"
+	def callbackGenerator(self, effect):
+		def onEffectSelected():
+			Presenter.WorkerPool.addHighPriorityTask(self.model.effectSelected, effect)
+		return onEffectSelected
+
